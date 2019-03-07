@@ -1,0 +1,89 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body  {
+    margin: 0;
+    background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(100-space-facts.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Maven Pro', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contacts_header {
+    margin-bottom: 10px;
+}
+
+h1 {
+    padding-bottom: 20px;
+}
+
+.contact_form {
+    width: 40%;
+    color: #fff;
+    background-color: rgba(179,178,176, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.button_add{
+    font-size:15px;
+    border-radius:5px;
+    color:black;
+    padding:10px 0;
+    margin:0;
+    outline: none;
+}
+
+input::placeholder {
+    font-size: 12px;
+}
+
+.button_add:active {
+    background: transparent;
+
+}
+
+input, .select {
+    padding: 10px;
+    width: 50%;
+    margin-bottom: 28px;
+    border-radius: 5px;
+
+}
+
+.contact_container{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 5px;
+    position: relative;
+    padding: 10px;
+    margin: 0 2rem 2rem 2rem;
+
+}
+
+/* Delete Button */
+.delete {
+    position: absolute;
+    bottom: -10px;
+    right: -13px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 50px;
+    border: 1px solid black;
+}
