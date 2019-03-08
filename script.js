@@ -3,7 +3,7 @@
 
     class AddressBook {
         constructor() {
-            this.contacts = [{name:'John',email: 'john.smith@gmail.com',phone:'734-505-2244',relation: 'friend'}];
+            this.contacts = [{name:'Meghan',email: 'meghan@grandcircus.com',phone:'111-222-3333',relation: 'friend'}, {name:'Julia',email: 'john.smith@gmail.com',phone:'734-505-2244',relation: 'coworker'},{name:'Jon',email: 'jon@grandcircus.com',phone:'111-222-3333',relation: 'coworker'}];
         }
         add() {
             const addedContact = new Contact(name.value, email.value, phone.value, relation.value);
@@ -11,36 +11,37 @@
         }
 
         display () {
-            // this is the section we are targetting
-            // The dot notation creates/mimics the path of what info you want to retrieve
             let contact_section = document.getElementById("contact_section");
+            contact_section.innerHTML = '';
+            for (const item of this.contacts) {
 
-            // Setting up variables for creating elements
-            let div = document.createElement("div");
-            let info = document.createElement("p");
-            let icon = document.createElement("i");
-
-            // Adding CSS classes to created elements
-            div.classList.add("contact_container");
-            icon.classList.add("material-icons");
-            icon.classList.add("delete");
-
-            //Adding text
-            icon.innerText ="delete";
-            info.innerText = `Name: ${name.value}
-            Email: ${email.value}
-            Phone: ${phone.value}
-            Relation: ${relation.value}`;
-
-            //Appending info to div,and div to contact section
-            div.appendChild(info);
-            div.appendChild(icon);
-            contact_section.appendChild(div);
-
-            icon.addEventListener("click", () => {
-                div.remove();
-            })
-
+                // Setting up variables for creating elements
+                let div = document.createElement("div");
+                let info = document.createElement("p");
+                let icon = document.createElement("i");
+                
+                // Adding CSS classes to created elements
+                div.classList.add("contact_container");
+                icon.classList.add("material-icons");
+                icon.classList.add("delete");
+                
+                //Adding text
+                icon.innerText ="delete";
+                info.innerText = `Name: ${item.name}
+                Email: ${item.email}
+                Phone: ${item.phone}
+                Relation: ${item.relation}`;
+                
+                //Appending info to div,and div to contact section
+                div.appendChild(info);
+                div.appendChild(icon);
+                contact_section.appendChild(div);
+                
+                icon.addEventListener("click", () => {
+                    div.remove();
+                })
+                
+            }
         }
 
         deleteAt(){
@@ -68,13 +69,20 @@
     let myAddressBook = new AddressBook;
 
     button.addEventListener("click", () => {
-        myAddressBook.add();
+        myAddressBook.add(new Contact(name.value, email.value, phone.value, relation.value));
         myAddressBook.display();
         name.value = "";
         email.value = "";
         phone.value = "";
         relation.value = "";
     });
+    
+   
+  window.addEventListener("load", function() {
+     
+    myAddressBook.display();
+     
+  });
 
-myAddressBook.display();
+
 }
